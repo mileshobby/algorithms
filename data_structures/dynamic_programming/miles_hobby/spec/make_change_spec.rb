@@ -16,12 +16,12 @@ describe 'Make change' do
     expect(dp.make_change(3, coins).nil?).to be(true)
   end
 
-  it 'handles recursive cases' do
-    expect(dp.make_change(12, coins)).to eq([2, 10])
-    expect(dp.make_change(54, coins)).to eq([7, 7, 10, 10, 10, 10])
-  end
+  # it 'handles recursive cases' do
+  #   expect(dp.make_change(12, coins)).to eq([2, 10])
+  #   expect(dp.make_change(54, coins)).to eq([7, 7, 10, 10, 10, 10])
+  # end
 
-  it 'runs in non-exponential time' do
-    expect { dp.make_change(1000, coins) }.to perform_under(100).ms
-  end
+  # it 'runs in non-exponential time' do
+  #   expect { dp.make_change(1000, coins) }.to perform_under(100).ms
+  # end
 end
