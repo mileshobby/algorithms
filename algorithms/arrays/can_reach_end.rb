@@ -1,3 +1,4 @@
+#given an input array, if you can move up to arr[i] steps at each index, is it possible to reach the end?
 def can_reach_end?(arr)
   furthest = 0
   i = 0
