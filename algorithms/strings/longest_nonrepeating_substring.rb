@@ -18,3 +18,4 @@ def longest_substring(str)
 end
 
 p longest_substring("abbccd")
+p longest_substring("abcdefghijk")
