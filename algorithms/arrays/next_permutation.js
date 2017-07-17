@@ -1,10 +1,11 @@
 var nextPermutation = function(nums) {
     for(let i = nums.length - 1; i > 0; i --){
         if(nums[i] > nums[i - 1]){
+            console.log(nums);
             let closest = i;
             let j = i + 1;
             while(j < nums.length){
-                if(nums[j] < nums[closest]){
+                if(nums[j] <= nums[closest] && nums[j] > nums[i - 1]){
                     closest = j;
                 }
                 j += 1;
@@ -13,9 +14,9 @@ var nextPermutation = function(nums) {
             nums[closest] = nums[i - 1];
             nums[i - 1] = temp;
             let k = i;
+            console.log(nums);
             j = nums.length - 1;
             while(k < j){
-                console.log('hi');
                 temp = nums[k];
                 nums[k] = nums[j];
                 nums[j] = temp;
@@ -27,6 +28,6 @@ var nextPermutation = function(nums) {
     }
     nums = nums.sort();
 };
-let x = [5, 4, 6, 1, 2];
+let x = [2,3,1];
 nextPermutation(x);
 console.log(x);
