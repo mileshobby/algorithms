@@ -26,7 +26,17 @@ var nextPermutation = function(nums) {
             return;
         }
     }
-    nums = nums.sort();
+    nums = nums.sort((a,b) => {
+      if(a < b){
+        return -1;
+      }
+      else if (b > a){
+        return 1;
+      }
+      else{
+        return 0;
+      }
+    });
 };
 let x = [2,3,1];
 nextPermutation(x);
