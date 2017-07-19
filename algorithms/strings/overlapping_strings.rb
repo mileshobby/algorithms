@@ -22,4 +22,7 @@ def concat(str1, str2)
   str1 + str2
 end
 
-p concat("miles", "fless")
+p concat("miles", "less")
+
+miles
+less
