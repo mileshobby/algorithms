@@ -5,6 +5,10 @@ class MinHeap
     @store = []
   end
 
+  def to_s
+    @store
+  end
+
   def insert(val)
     @store << val
     heapify_up
@@ -21,6 +25,7 @@ class MinHeap
     index = @store.length - 1
     until index == 0 || @store[index] >= @store[parent(index)]
       @store[index], @store[parent(index)] = @store[parent(index)], @store[index]
+      index = parent(index)
     end
   end
 
@@ -58,3 +63,17 @@ class MinHeap
   end
 
 end
+
+def kth_smallest(arr, k)
+  heap = MinHeap.new
+  arr.each do |el|
+    heap.insert(el)
+    p heap
+  end
+  (k - 1).times { heap.extract }
+  p heap
+  heap.extract
+end
+
+ten = [4,3,6,1,2,10,9,5,7,8]
+p kth_smallest(ten, 4)
