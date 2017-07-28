@@ -5,6 +5,14 @@ class MinHeap
     @store = []
   end
 
+  def length
+    @store.length
+  end
+
+  def peek
+    @store[0]
+  end
+
   def to_s
     @store
   end
@@ -64,16 +72,14 @@ class MinHeap
 
 end
 
-def kth_smallest(arr, k)
+def kth_largest(arr, k)
   heap = MinHeap.new
   arr.each do |el|
     heap.insert(el)
-    p heap
+    heap.extract if heap.length > k
   end
-  (k - 1).times { heap.extract }
-  p heap
-  heap.extract
+  heap.peek
 end
 
 ten = [4,3,6,1,2,10,9,5,7,8]
-p kth_smallest(ten, 4)
+p kth_largest(ten, 4)
