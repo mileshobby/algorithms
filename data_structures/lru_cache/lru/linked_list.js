@@ -5,14 +5,15 @@ class LinkedList{
     this.tail = null;
     this.length = 0;
     this.find = this.find.bind(this);
+    this.deleteNode = this.deleteNode.bind(this);
   }
 
   mostRecent(){
-    this.tail.val;
+    return this.tail;
   }
 
   oldest(){
-    this.head.val;
+    return this.head;
   }
 
   append(key, val){
@@ -45,8 +46,7 @@ class LinkedList{
     return null;
   }
 
-  delete(key){
-    let delNode = this.find(key);
+  deleteNode(delNode){
     if (delNode === null) return null;
 
     if(this.length === 1){
@@ -66,6 +66,11 @@ class LinkedList{
       delNode.next.prev = delNode.prev;
     }
     this.length--;
+  }
+
+  delete(key){
+    let delNode = this.find(key);
+    this.deleteNode(delNode);
   }
 
   toString(){
@@ -90,12 +95,14 @@ class Node{
   }
 }
 
-let list = new LinkedList;
-list.append(1, 5);
-list.append(2, 3);
-list.append(3, 4);
-console.log(list);
-console.log(list.length);
-list.delete(2);
-console.log(list);
-console.log(list.length);
+module.exports = LinkedList;
+
+// let list = new LinkedList;
+// list.append(1, 5);
+// list.append(2, 3);
+// list.append(3, 4);
+// console.log(list);
+// console.log(list.length);
+// list.delete(2);
+// console.log(list);
+// console.log(list.length);
